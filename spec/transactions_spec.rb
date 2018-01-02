@@ -20,7 +20,7 @@ describe Transactions do
       expect(subject.balance).to eq(1000)
     end
 
-    it 'knows have the right balance on the hash' do
+    it 'have the right balance on the hash' do
       subject.deposit(500)
       expect(subject.deposit(500, '2018-01-02')).to eq({transaction: "deposit", value: 500, balance: 1000, date: '2018-01-02'})
     end
