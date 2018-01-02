@@ -12,34 +12,20 @@ class TransactionsList
   end
 
   def print_transactions
-    clear_transaction_list
-    read_list_of_transactions
-    prints_content
+    print_header
+    print_content
   end
 
   private
-  def clear_transaction_list
-    @transactions = []
+
+  def print_header
+    puts 'Transaction  || Debit ||  Balance  || Date ||'
   end
 
-  def read_list_of_transactions
-    CSV.foreach('lib/transaction_list.csv') do |line|
-      transaction = line[0]
-      value = line[1]
-      balance = line[2]
-      date = line[3]
-      add_transaction_to_list(transaction, value, balance, date)
-    end
-  end
-
-  def add_transaction_to_list(transaction, value, balance, date)
-    @transactions << {transaction: transaction, value: value.to_i, balance: balance.to_i, date: date}
-  end
-
-  def prints_content
-    puts "Transaction   ||   Debit/Credit  ||  Balance  ||  Date"
-    transactions.each do |transaction|
-      puts "    #{transaction[:transaction]}   ||       #{transaction[:value]}        ||   #{transaction[:balance]}   ||   #{transaction[:date]}"
+  def print_content
+    @transactions.each do |hash|
+      hash.each_value {|value| print "   #{value}   ||"}
+      print "\n"
     end
   end
 end
