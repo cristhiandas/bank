@@ -7,7 +7,7 @@ class Transactions
   end
 
   def deposit(value)
-    @balance = value
+    @balance += value
     {transaction: "deposit", value: value, balance: value}
   end
 

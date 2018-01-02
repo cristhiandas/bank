@@ -13,5 +13,11 @@ describe Transactions do
     end
   end
 
-
+  context 'when multiple deposits' do
+    it 'changes the balance properly' do
+      subject.deposit(500)
+      subject.deposit(500)
+      expect(subject.balance).to eq(1000)
+    end
+  end
 end
