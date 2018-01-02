@@ -8,5 +8,9 @@ describe Bank do
       expect(subject.make_deposit(500)).to be_a(Hash)
     end
 
+    it 'Can make withdrawals' do
+      expect(subject.make_withdrawal(500)).to be_a(Hash)
+    end
+
   end
 end

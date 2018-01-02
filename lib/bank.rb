@@ -7,4 +7,7 @@ class Bank
     @transaction.deposit(value)
   end
 
+  def make_withdrawal(value)
+    @transaction.withdrawal(value)
+  end
 end
