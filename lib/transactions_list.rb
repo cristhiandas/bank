@@ -12,17 +12,14 @@ class TransactionsList
   end
 
   def print_transactions
+    clear_transaction_list
     read_list_of_transactions
     prints_content
   end
 
   private
-
-  def prints_content
-    puts "Transaction   ||   Debit/Credit  ||  Balance  ||  Date"
-    transactions.each do |transaction|
-      puts "    #{transaction[:transaction]}   ||       #{transaction[:value]}        ||   #{transaction[:balance]}   ||   #{transaction[:date]}"
-    end
+  def clear_transaction_list
+    @transactions = []
   end
 
   def read_list_of_transactions
@@ -37,5 +34,12 @@ class TransactionsList
 
   def add_transaction_to_list(transaction, value, balance, date)
     @transactions << {transaction: transaction, value: value.to_i, balance: balance.to_i, date: date}
+  end
+
+  def prints_content
+    puts "Transaction   ||   Debit/Credit  ||  Balance  ||  Date"
+    transactions.each do |transaction|
+      puts "    #{transaction[:transaction]}   ||       #{transaction[:value]}        ||   #{transaction[:balance]}   ||   #{transaction[:date]}"
+    end
   end
 end

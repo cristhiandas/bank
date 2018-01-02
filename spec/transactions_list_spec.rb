@@ -21,5 +21,12 @@ describe TransactionsList do
     it 'prints transactions' do
       expect {subject.print_transactions}.to output.to_stdout
     end
+
+    it 'clears the previous list before passing the new one' do
+      subject.print_transactions
+      subject.print_transactions
+      expect(subject.transactions[2]).to eq(nil)
+      expect(subject.transactions[3]).to eq(nil)
+    end
   end
 end
