@@ -11,7 +11,7 @@ class TransactionsList
     @transactions << hash
   end
 
-  def print_list
+  def read_list_of_transactions
     CSV.foreach('lib/transaction_list.csv') do |line|
       transaction = line[0]
       value = line[1]
