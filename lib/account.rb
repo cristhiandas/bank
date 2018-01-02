@@ -1,6 +1,6 @@
 require 'date'
 
-class Transactions
+class Account
 
   attr_reader :balance
 

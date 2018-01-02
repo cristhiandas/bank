@@ -1,13 +1,13 @@
 class Bank
   def initialize
-    @transaction = Transactions.new
+    @account = Account.new
   end
 
   def make_deposit(value)
-    @transaction.deposit(value)
+    @account.deposit(value)
   end
 
   def make_withdrawal(value)
-    @transaction.withdrawal(value)
+    @account.withdrawal(value)
   end
 end

@@ -12,5 +12,6 @@ describe Bank do
       expect(subject.make_withdrawal(500)[0]).to be_a(Hash)
     end
 
+
   end
 end

@@ -1,6 +1,6 @@
-require 'transactions.rb'
+require 'account.rb'
 
-describe Transactions do
+describe Account do
 
   context 'when making a deposit' do
     it 'saves the value on a hash' do
