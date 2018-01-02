@@ -46,5 +46,10 @@ describe Transactions do
       subject.withdrawal(100)
       expect(subject.balance).to eq(300)
     end
+    it 'sets the balance properly' do
+      subject.deposit(500)
+      subject.withdrawal(100)
+      expect(subject.withdrawal(100, '2018-01-02')).to eq({transaction: "withdrawal", value: 100, balance: 300, date: '2018-01-02'})
+    end
   end
 end

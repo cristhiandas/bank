@@ -15,7 +15,7 @@ class Transactions
 
   def withdrawal(value, date = Time.now.strftime("%Y-%d-%m"))
     @balance -= value
-    {transaction: "withdrawal", value: value, balance: 0, date: date}
+    {transaction: "withdrawal", value: value, balance: @balance, date: date}
   end
 
 end
