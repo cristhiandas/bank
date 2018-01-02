@@ -13,4 +13,8 @@ class Transactions
     {transaction: "deposit", value: value, balance: @balance, date: date}
   end
 
+  def withdrawal(value, date = Time.now.strftime("%Y-%d-%m"))
+    {transaction: "withdrawal", value: value, balance: 0, date: date}
+  end
+
 end

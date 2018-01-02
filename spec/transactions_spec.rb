@@ -25,4 +25,11 @@ describe Transactions do
       expect(subject.deposit(500, '2018-01-02')).to eq({transaction: "deposit", value: 500, balance: 1000, date: '2018-01-02'})
     end
   end
+
+  context 'when making a withdrawal' do
+    it 'saves the value on a hash' do
+      subject.deposit(500)
+      expect(subject.withdrawal(500, '2018-01-02')).to eq({transaction: "withdrawal", value: 500, balance: 0, date: '2018-01-02'})
+    end
+  end
 end
