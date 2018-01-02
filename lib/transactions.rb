@@ -1,3 +1,5 @@
+require 'date'
+
 class Transactions
 
   attr_reader :balance
@@ -6,9 +8,9 @@ class Transactions
     @balance = 0
   end
 
-  def deposit(value)
+  def deposit(value, date = Time.now.strftime("%Y-%d-%m"))
     @balance += value
-    {transaction: "deposit", value: value, balance: @balance}
+    {transaction: "deposit", value: value, balance: @balance, date: date}
   end
 
 end
