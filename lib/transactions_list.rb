@@ -11,6 +11,20 @@ class TransactionsList
     @transactions << hash
   end
 
+  def print_transactions
+    read_list_of_transactions
+    prints_content
+  end
+
+  private
+
+  def prints_content
+    puts "Transaction   ||   Debit/Credit  ||  Balance  ||  Date"
+    transactions.each do |transaction|
+      puts "    #{transaction[:transaction]}   ||       #{transaction[:value]}        ||   #{transaction[:balance]}   ||   #{transaction[:date]}"
+    end
+  end
+
   def read_list_of_transactions
     CSV.foreach('lib/transaction_list.csv') do |line|
       transaction = line[0]
@@ -20,8 +34,6 @@ class TransactionsList
       add_transaction_to_list(transaction, value, balance, date)
     end
   end
-
-  private
 
   def add_transaction_to_list(transaction, value, balance, date)
     @transactions << {transaction: transaction, value: value.to_i, balance: balance.to_i, date: date}
