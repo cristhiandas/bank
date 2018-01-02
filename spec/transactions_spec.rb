@@ -38,4 +38,13 @@ describe Transactions do
       expect(subject.balance).to eq(0)
     end
   end
+
+  context 'when doing multiple withdrawals' do
+    it 'changes the balance properly' do
+      subject.deposit(500)
+      subject.withdrawal(100)
+      subject.withdrawal(100)
+      expect(subject.balance).to eq(300)
+    end
+  end
 end
