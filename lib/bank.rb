@@ -10,4 +10,8 @@ class Bank
   def make_withdrawal(value)
     @account.withdrawal(value)
   end
+
+  def print_statement
+    @account.print_transactions
+  end
 end

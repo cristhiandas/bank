@@ -19,6 +19,10 @@ class Account
     save_transaction_hash("withdrawal", value, date)
   end
 
+  def print_transactions
+    @trans.print_transactions
+  end
+
   private
 
   def save_transaction_hash(type, value, date)

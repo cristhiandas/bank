@@ -52,4 +52,12 @@ describe Account do
       expect(subject.withdrawal(100, '2018-01-02')[2]).to eq({transaction: "withdrawal", value: 100, balance: 300, date: '2018-01-02'})
     end
   end
+
+  context 'when printing transactions' do
+    it 'prints the transactions' do
+      subject.deposit(500)
+      subject.withdrawal(100)
+      expect {subject.print_transactions}.to output.to_stdout
+    end
+  end
 end
