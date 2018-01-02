@@ -10,4 +10,12 @@ describe TransactionsList do
       expect(subject.transactions).to eq([{value: 'something'}])
     end
   end
+
+  context 'when printing transactions' do
+    it 'passes the list of transactions' do
+      subject.print_list
+      expect(subject.transactions[0]).to eq({transaction: "deposit", value: 500, balance: 500, date: '2018-01-02'})
+      expect(subject.transactions[1]).to eq({transaction: "deposit", value: 500, balance: 1000, date: '2018-01-02'})
+    end
+  end
 end
