@@ -15,7 +15,9 @@ describe TransactionsList do
     it 'prints transactions' do
       subject.save_transaction({transaction: "deposit", value: 500, balance: 500, date: '2018-01-02'})
       subject.save_transaction({transaction: "deposit", value: 500, balance: 1000, date: '2018-01-02'})
-      expect {subject.print_transactions}.to output.to_stdout
+      expect {subject.print_transactions}.to output("Transaction  || Debit ||  Balance  || Date ||
+   deposit   ||   500   ||   500   ||   2018-01-02   ||
+   deposit   ||   500   ||   1000   ||   2018-01-02   ||\n").to_stdout
     end
 
   end
