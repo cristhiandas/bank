@@ -6,7 +6,7 @@ class Account
 
   def initialize
     @balance = 0
-    @trans = TransactionsList.new
+    @transaction_list = TransactionsList.new
   end
 
   def deposit(value, date = Time.now.strftime("%Y-%d-%m"))
@@ -20,13 +20,14 @@ class Account
   end
 
   def print_transactions
-    @trans.print_transactions
+    @transaction_list.print_transactions
   end
 
   private
 
   def save_transaction_hash(type, value, date)
-    @trans.save_transaction({transaction: type, value: value, balance: @balance, date: date})
+    @transaction_list.save_transaction({transaction: type, value: value,
+                                        balance: @balance, date: date})
   end
 
 end
