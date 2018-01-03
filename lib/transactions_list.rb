@@ -7,8 +7,8 @@ class TransactionsList
     @transactions = []
   end
 
-  def save_transaction(hash)
-    @transactions << hash
+  def save_transaction(transaction)
+    @transactions << transaction
   end
 
   def print_transactions
@@ -23,8 +23,8 @@ class TransactionsList
   end
 
   def print_content
-    @transactions.each do |hash|
-      hash.each_value {|value| print "   #{value}   ||"}
+    @transactions.each do |transaction|
+      transaction.each_value {|value| print "   #{value}   ||"}
       print "\n"
     end
   end
