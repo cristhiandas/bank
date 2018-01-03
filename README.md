@@ -1,4 +1,4 @@
-Bank tech-test
+Bank tech-test[![Build Status](https://travis-ci.org/cristhiandas/bank.svg?branch=master)](https://travis-ci.org/cristhiandas/bank)
 =================
 
 It has been requested to create a banking system, the user stories are the following:
