@@ -1,10 +1,12 @@
 require 'account.rb'
 
 describe Account do
-
   context 'when making a deposit' do
     it 'saves the value on a hash' do
-      expect(subject.deposit(500, '2018-01-02')[0]).to eq({transaction: "deposit", value: 500, balance: 500, date: '2018-01-02'})
+      expect(subject.deposit(500, '2018-01-02')[0]).to eq(
+        transaction: 'deposit', value: 500, balance: 500,
+        date: '2018-01-02'
+      )
     end
 
     it 'changes the balance' do
@@ -22,14 +24,20 @@ describe Account do
 
     it 'have the right balance on the hash' do
       subject.deposit(500)
-      expect(subject.deposit(500, '2018-01-02')[1]).to eq({transaction: "deposit", value: 500, balance: 1000, date: '2018-01-02'})
+      expect(subject.deposit(500, '2018-01-02')[1]).to eq(
+        transaction: 'deposit', value: 500, balance: 1000,
+        date: '2018-01-02'
+      )
     end
   end
 
   context 'when making a withdrawal' do
     it 'saves the value on a hash' do
       subject.deposit(500)
-      expect(subject.withdrawal(500, '2018-01-02')[1]).to eq({transaction: "withdrawal", value: 500, balance: 0, date: '2018-01-02'})
+      expect(subject.withdrawal(500, '2018-01-02')[1]).to eq(
+        transaction: 'withdrawal', value: 500, balance: 0,
+        date: '2018-01-02'
+      )
     end
 
     it 'changes the balance' do
@@ -39,7 +47,9 @@ describe Account do
     end
 
     it 'says if the account have insufficient funds' do
-      expect{ subject.withdrawal(1, '2018-01-02') }.to raise_error("Insufficient funds")
+      expect { subject.withdrawal(1, '2018-01-02') }.to raise_error(
+        'Insufficient funds'
+      )
     end
   end
 
@@ -53,7 +63,10 @@ describe Account do
     it 'sets the balance properly' do
       subject.deposit(500)
       subject.withdrawal(100)
-      expect(subject.withdrawal(100, '2018-01-02')[2]).to eq({transaction: "withdrawal", value: 100, balance: 300, date: '2018-01-02'})
+      expect(subject.withdrawal(100, '2018-01-02')[2]).to eq(
+        transaction: 'withdrawal', value: 100, balance: 300,
+        date: '2018-01-02'
+      )
     end
   end
 
@@ -61,7 +74,7 @@ describe Account do
     it 'prints the transactions' do
       subject.deposit(500)
       subject.withdrawal(100)
-      expect {subject.print_transactions}.to output.to_stdout
+      expect { subject.print_transactions }.to output.to_stdout
     end
   end
 end

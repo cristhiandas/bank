@@ -1,5 +1,4 @@
-require 'csv'
-
+# Transaction List class
 class TransactionsList
   attr_reader :transactions
 
@@ -24,7 +23,7 @@ class TransactionsList
 
   def print_content
     @transactions.each do |transaction|
-      transaction.each_value {|value| print "   #{value}   ||"}
+      transaction.each_value { |value| print "   #{value}   ||" }
       print "\n"
     end
   end

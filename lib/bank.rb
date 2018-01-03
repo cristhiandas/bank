@@ -1,3 +1,4 @@
+# Bank class
 class Bank
   def initialize
     @account = Account.new

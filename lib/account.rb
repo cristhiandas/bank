@@ -1,7 +1,6 @@
 require 'date'
-
+# Account class
 class Account
-
   attr_reader :balance
 
   def initialize
@@ -9,15 +8,15 @@ class Account
     @transaction_list = TransactionsList.new
   end
 
-  def deposit(value, date = Time.now.strftime("%Y-%d-%m"))
+  def deposit(value, date = Time.now.strftime('%Y-%d-%m'))
     @balance += value
-    save_transaction_hash("deposit", value, date)
+    save_transaction_hash('deposit', value, date)
   end
 
-  def withdrawal(value, date = Time.now.strftime("%Y-%d-%m"))
-    raise RuntimeError, "Insufficient funds" if (0 > @balance - value)
+  def withdrawal(value, date = Time.now.strftime('%Y-%d-%m'))
+    raise 'Insufficient funds' if @balance - value < 0
     @balance -= value
-    save_transaction_hash("withdrawal", value, date)
+    save_transaction_hash('withdrawal', value, date)
   end
 
   def print_transactions
@@ -27,8 +26,7 @@ class Account
   private
 
   def save_transaction_hash(type, value, date)
-    @transaction_list.save_transaction({transaction: type, value: value,
-                                        balance: @balance, date: date})
+    @transaction_list.save_transaction(transaction: type, value: value,
+                                       balance: @balance, date: date)
   end
-
 end
