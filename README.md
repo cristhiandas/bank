@@ -1,4 +1,4 @@
-Bank tech-test[![Build Status](https://travis-ci.org/cristhiandas/bank.svg?branch=master)](https://travis-ci.org/cristhiandas/bank)
+Bank tech-test[![Build Status](https://travis-ci.org/cristhiandas/bank.svg?branch=master)](https://travis-ci.org/cristhiandas/bank)[![Coverage Status](https://coveralls.io/repos/github/cristhiandas/bank/badge.svg?branch=master)](https://coveralls.io/github/cristhiandas/bank?branch=master)
 =================
 
 It has been requested to create a banking system, the user stories are the following:
