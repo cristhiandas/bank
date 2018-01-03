@@ -37,6 +37,10 @@ describe Account do
       subject.withdrawal(500)
       expect(subject.balance).to eq(0)
     end
+
+    it 'says if the account have insufficient funds' do
+      expect{ subject.withdrawal(1, '2018-01-02') }.to raise_error("Insufficient funds")
+    end
   end
 
   context 'when doing multiple withdrawals' do

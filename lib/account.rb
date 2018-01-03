@@ -15,6 +15,7 @@ class Account
   end
 
   def withdrawal(value, date = Time.now.strftime("%Y-%d-%m"))
+    raise RuntimeError, "Insufficient funds" if (0 > @balance - value)
     @balance -= value
     save_transaction_hash("withdrawal", value, date)
   end

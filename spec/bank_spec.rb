@@ -8,8 +8,13 @@ describe Bank do
       expect(subject.make_deposit(500)[0]).to be_a(Hash)
     end
 
-    it 'Can make withdrawals' do
+    it 'Can make withdrawals if it have funds' do
+      subject.make_deposit(500)
       expect(subject.make_withdrawal(500)[0]).to be_a(Hash)
+    end
+
+    it 'Cannot make withdrawals with insufficient funds' do
+      expect{subject.make_withdrawal(1)}.to raise_error("Insufficient funds")
     end
 
     it 'Can print a single transaction' do
